@@ -2,71 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Seedlings.world</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Something is growing. Join the list." />
+
   <style>
-    body {
+    html, body {
       margin: 0;
-      min-height: 100vh;
+      padding: 0;
+      height: 100%;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: white;
+      background: black;
+    }
+
+    body {
+      background: url("background.jpg") center / cover no-repeat fixed;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #000;
-      color: #fff;
+      text-align: center;
     }
-    .card {
-      background: rgba(255,255,255,0.06);
-      padding: 2rem;
-      border-radius: 12px;
-      width: 100%;
+
+    .overlay {
+      background: rgba(0,0,0,0.55);
+      padding: 40px 24px;
+      border-radius: 16px;
       max-width: 420px;
+      width: 100%;
       box-shadow: 0 20px 60px rgba(0,0,0,0.6);
     }
+
     h1 {
-      margin-top: 0;
-      font-weight: 600;
-      font-size: 1.8rem;
+      font-size: 2.2rem;
+      margin-bottom: 12px;
     }
+
     p {
-      color: #bbb;
-      margin-bottom: 1.5rem;
+      opacity: 0.85;
+      margin-bottom: 28px;
+      line-height: 1.5;
     }
-    input {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border-radius: 8px;
+
+    form {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+    }
+
+    input[type="email"] {
+      padding: 14px;
+      border-radius: 12px;
       border: none;
-      margin-bottom: 1rem;
+      font-size: 1rem;
+      outline: none;
     }
+
     button {
-      width: 100%;
-      padding: 0.75rem;
-      font-size: 1rem;
-      border-radius: 8px;
+      padding: 14px;
+      border-radius: 12px;
       border: none;
-      background: #5eb8ff;
-      color: #000;
-      font-weight: 600;
+      background: linear-gradient(135deg, #4f9cff, #7fb6ff);
+      color: white;
+      font-size: 1rem;
       cursor: pointer;
     }
+
     button:hover {
       opacity: 0.9;
     }
+
+    .note {
+      font-size: 0.85rem;
+      opacity: 0.6;
+      margin-top: 14px;
+    }
   </style>
 </head>
-<body>
-  <div class="card">
-    <h1>Seedlings.world</h1>
-    <p>Something is growing. Leave your email.</p>
 
-    <form name="signup" method="POST" data-netlify="true" action="/success.html">
+<body>
+  <div class="overlay">
+    <h1>Something is growing</h1>
+
+    <p>
+      We’re building something special.  
+      Leave your email and we’ll let you know when it is ready.
+    </p>
+
+    <!-- NETLIFY FORM -->
+    <form
+      name="signup"
+      method="POST"
+      data-netlify="true"
+      action="/success.html"
+    >
       <input type="hidden" name="form-name" value="signup" />
-      <input type="email" name="email" placeholder="you@example.com" required />
+
+      <input
+        type="email"
+        name="email"
+        placeholder="Your email address"
+        required
+      />
+
       <button type="submit">Notify me</button>
     </form>
+
+    <div class="note">
+      No spam. Just the moment it’s ready.
+    </div>
   </div>
 </body>
 </html>
